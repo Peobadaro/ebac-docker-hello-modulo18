@@ -3,8 +3,8 @@ name: Publica a imagem no Docker Hub
 on:
   workflow_dispatch:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 env:
   IMAGE: pbferr/ebac-hello-world

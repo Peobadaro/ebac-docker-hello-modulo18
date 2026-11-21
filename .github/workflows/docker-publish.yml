@@ -7,7 +7,7 @@ on:
       - "v*"
 
 env:
-  IMAGE: peobadaro/ebac-hello-world
+  IMAGE: pbferr/ebac-hello-world
   VERSION: "1.0"
 
 jobs:

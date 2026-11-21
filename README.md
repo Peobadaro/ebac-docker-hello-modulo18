@@ -4,7 +4,7 @@ Exercício do curso **Profissão: Desenvolvedor Full Stack Python** (EBAC).
 
 Autor: **Pedro Badaró Ferreira** ([@Peobadaro](https://github.com/Peobadaro))
 
-Imagem no Docker Hub: **[peobadaro/ebac-hello-world](https://hub.docker.com/r/peobadaro/ebac-hello-world)**
+Imagem no Docker Hub: **[pbferr/ebac-hello-world](https://hub.docker.com/r/pbferr/ebac-hello-world)**
 
 ## Dockerfile
 
@@ -16,18 +16,18 @@ CMD ["echo", "Olá, EBAC! Hello World do Pedro Badaró Ferreira - Módulo 18 (Do
 ## Passo a passo (o mesmo da aula)
 
 ```bash
-docker build -t peobadaro/ebac-hello-world:1.0 .      # monta a imagem no diretório atual (.)
-docker tag peobadaro/ebac-hello-world:1.0 peobadaro/ebac-hello-world:latest
-docker run --rm peobadaro/ebac-hello-world:1.0        # testa
+docker build -t pbferr/ebac-hello-world:1.0 .      # monta a imagem no diretório atual (.)
+docker tag pbferr/ebac-hello-world:1.0 pbferr/ebac-hello-world:latest
+docker run --rm pbferr/ebac-hello-world:1.0        # testa
 docker login                                           # sem login o push dá erro de permissão
-docker push peobadaro/ebac-hello-world:1.0
-docker push peobadaro/ebac-hello-world:latest
+docker push pbferr/ebac-hello-world:1.0
+docker push pbferr/ebac-hello-world:latest
 ```
 
 ## Rodar a imagem publicada
 
 ```bash
-docker run --rm peobadaro/ebac-hello-world:1.0
+docker run --rm pbferr/ebac-hello-world:1.0
 ```
 
 ## Automação

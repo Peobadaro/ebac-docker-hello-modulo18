@@ -1,0 +1,35 @@
+name: Publica a imagem no Docker Hub
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+env:
+  IMAGE: peobadaro/ebac-hello-world
+  VERSION: "1.0"
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixa o código
+        uses: actions/checkout@v4
+
+      - name: Login no Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: docker build (com as tags 1.0 e latest)
+        run: docker build -t $IMAGE:$VERSION -t $IMAGE:latest .
+
+      - name: Testa a imagem (docker run)
+        run: docker run --rm $IMAGE:$VERSION
+
+      - name: docker push
+        run: |
+          docker push $IMAGE:$VERSION
+          docker push $IMAGE:latest
